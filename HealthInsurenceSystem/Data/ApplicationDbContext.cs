@@ -20,6 +20,7 @@ namespace HealthInsurenceSystem.Data
         public DbSet<Admin> Admin { get; set; }
         public DbSet<Paymentlog> Paymentlog { get; set; }
         public DbSet<Contact> Contact { get; set; }
+        public DbSet<Interested> Interested { get; set; }
 
     }
 }

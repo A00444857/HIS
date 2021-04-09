@@ -25,6 +25,11 @@ namespace HealthInsurenceSystem.Controllers
             IEnumerable<Policy> objList = _db.Policy;
             return View(objList);
         }
+        public IActionResult Interest()
+        {
+
+            return View();
+        }
         public IActionResult knowmore()
         {
             return View();
@@ -45,6 +50,19 @@ namespace HealthInsurenceSystem.Controllers
         {
         
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult addtocart(Interested obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _db.Interested.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Interest");
+            }
+            return View(obj);
         }
     }
 }

@@ -1,23 +1,26 @@
-﻿@model HealthInsurenceSystem.Models.Policy
+﻿@model HealthInsurenceSystem.Models.Interested
 
 
 <h1>Add to Cart Page</h1>
-<hr /> 
+<hr />
 <hr />
 
 <h2>Policy has been successfully added to your cart </h2>
 
 
-<form method="post">
- 
+<form method="post" asp-action="addtocart">
+
     <div class="border p-3">
 
         <div class="form-group row">
-            <h2 class="text-info pl-3">Added Policy Details</h2>
+            <h2 class="text-info pl-3">Liked Policy Details</h2>
         </div>
         <div class="row">
             <div class="col-8">
                 <div class="form-group row">
+                    <div class="col-4">
+                        <label >Email</label>
+                    </div>
                     <div class="col-4">
                         <label asp-for="Ptype"></label>
                     </div>
@@ -29,11 +32,14 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="MonthPremium"></label>
+                        <input asp-for="Cemail" class="form-control" />
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Amount"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="MonthPremium" class="form-control" />
-                        <span asp-validation-for="MonthPremium" class="text-danger"></span>
+                        <input asp-for="Ptype" class="form-control" />
+                        <span asp-validation-for="Ptype" class="text-danger"></span>
                     </div>
 
                 </div>
@@ -41,7 +47,7 @@
                     <div class="col-8 offset-4 row">
 
                         <div class="col">
-                           <a asp-action="payonline" class="btn btn-info w-100">Pay Online </a>
+                            <a asp-action="addtocart" class="btn btn-info w-100">Submit </a>
                         </div>
                         <div class="col">
                             <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>

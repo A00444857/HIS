@@ -20,6 +20,7 @@ namespace HealthInsurenceSystem.Models
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Interested> Interesteds { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Paymentlog> Paymentlogs { get; set; }
         public virtual DbSet<Person> People { get; set; }
@@ -60,9 +61,17 @@ namespace HealthInsurenceSystem.Models
 
                 entity.ToTable("Contact");
 
+                entity.Property(e => e.Mnumber)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Name)
-                    .HasMaxLength(10)
-                    .IsFixedLength(true);
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Subject).IsRequired();
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -90,6 +99,23 @@ namespace HealthInsurenceSystem.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Purchaseddate).HasColumnType("date");
+            });
+
+            modelBuilder.Entity<Interested>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("Interested");
+
+                entity.Property(e => e.Cemail)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Ptype)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Payment>(entity =>
