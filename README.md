@@ -1,1 +1,3 @@
-# HIS
+# HealthInsurenceSystem
+
+Project of Software Development
