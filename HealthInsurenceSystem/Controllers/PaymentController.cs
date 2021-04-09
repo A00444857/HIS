@@ -61,6 +61,7 @@ namespace HealthInsurenceSystem.Controllers
                         TempData["Epay"] = x1.Cemail;
                         TempData["Amount"]= Int32.Parse(TempData["Amount"].ToString())* (now.Month - dat.Month);
                         TempData["data"]=Int32.Parse(TempData["data"].ToString())* (now.Month - dat.Month);
+                    HttpContext.Session.SetInt32("CardNumber", 0);
                     return RedirectToAction("PaymentPage");
                     }
                     else
@@ -78,6 +79,7 @@ namespace HealthInsurenceSystem.Controllers
             IEnumerable<Payment> x1 = _db.Payment.Where(a => a.Cardnumber == obj.Cardnumber && a.ExpiredDate==obj.ExpiredDate && a.Cvv == obj.Cvv);
             if (ModelState.IsValid)
             {
+                
                 if (x1.Count() > 0)
                 {
                     Paymentlog p = new Paymentlog();
@@ -94,7 +96,12 @@ namespace HealthInsurenceSystem.Controllers
                     lpay.Duration=lpay.Duration- dat.Month;
                     _db.SaveChanges();
                     return View(_db.Paymentlog.Where(a=> a.Pnumber== Int32.Parse(x)));
-                }    
+                }
+                else
+                {
+                    HttpContext.Session.SetInt32("CardNumber", 1);
+                    return RedirectToAction("PaymentPage");
+                }
             }
             return View("Notok");
         }
