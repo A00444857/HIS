@@ -45,6 +45,27 @@ namespace HealthInsurenceSystem.Controllers
             var obj = _db.Policy.Find(Ptype);
             return View(obj);
         }
+        public IActionResult SuperPlatinum()
+        {
+            return View();
+        }
+        public IActionResult Standard()
+        {
+            return View();
+        }
+        public IActionResult Gold()
+        {
+            return View();
+        }
+        public IActionResult Platinum()
+        {
+            return View();
+        
+        }
+        public IActionResult Silver()
+        {
+            return View();
+        }
 
         public IActionResult payonline()
         {
