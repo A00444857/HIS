@@ -10,9 +10,10 @@ namespace HealthInsurenceSystem.Models
     {
         [Key]
         public int Cnumber { get; set; }
-        [Required(ErrorMessage = "Please enter your email")]
         [Display(Name = "Email address")]
-        [EmailAddress(ErrorMessage = "Please enter a valid email")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
         public string Name { get; set; }
         public DateTime? Dob { get; set; }
