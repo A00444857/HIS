@@ -55,6 +55,8 @@ namespace HealthInsurenceSystem.Controllers
                    
                     TempData["Ldate"] = dat;
                     TempData["Amount"] = Int32.Parse(x1.Amount.ToString());
+                    TempData["Policy number"] = x1.Pnumber;
+                    TempData["Epay"] = x1.Cemail;
                     TempData["data"] = x1.Amount;
                     HttpContext.Session.SetInt32("CardNumber", 0);
                     return RedirectToAction("PaymentPage");

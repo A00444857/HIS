@@ -15,6 +15,7 @@ namespace HealthInsurenceSystem.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
+        [StringLength(100, ErrorMessage = "Check Name")]
         public string Name { get; set; }
         public DateTime? Dob { get; set; }
         public string Password { get; set; }
