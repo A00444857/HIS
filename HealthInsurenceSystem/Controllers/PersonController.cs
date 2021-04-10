@@ -42,16 +42,29 @@ namespace HealthInsurenceSystem.Controllers
             {
                 if (x1.Count()>0)
                 {
-                   
-                    if (x1.First().Email.IndexOf("his")>0)
+                    int x = x1.First().Email.IndexOf("his");
+                    int y = x1.First().Email.IndexOf("admin");
+                    if (x-y==6)
                     {
-                        HttpContext.Session.SetInt32("loggedIn", 2);
+                        HttpContext.Session.SetInt32("loggedIn", 3);
                         HttpContext.Session.SetString("emailID", x1.First().Email);
                         return RedirectToAction("Index", "Home");
                     }
-                    HttpContext.Session.SetInt32("loggedIn", 1);
-                    HttpContext.Session.SetString("emailID", x1.First().Email);
-                    return RedirectToAction("Index", "Home");
+                    else
+                    {
+                        if (x1.First().Email.IndexOf("his") > 0)
+                        {
+                            HttpContext.Session.SetInt32("loggedIn", 2);
+                            HttpContext.Session.SetString("emailID", x1.First().Email);
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            HttpContext.Session.SetInt32("loggedIn", 1);
+                            HttpContext.Session.SetString("emailID", x1.First().Email);
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
                 }
                 else
                 {

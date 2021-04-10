@@ -760,3 +760,7 @@ D:\GitHub\HIS\HealthInsurenceSystem\obj\Debug\net5.0\Razor\Views\Agent\Index.csh
 D:\GitHub\HIS\HealthInsurenceSystem\obj\Debug\net5.0\Razor\Views\Person\Notok.cshtml.g.cs
 D:\GitHub\HIS\HealthInsurenceSystem\obj\Debug\net5.0\Razor\Views\Agent\Purchased.cshtml.g.cs
 D:\GitHub\HIS\HealthInsurenceSystem\obj\Debug\net5.0\Razor\Views\Agent\Sold.cshtml.g.cs
+D:\GitHub\HIS\HealthInsurenceSystem\obj\Debug\net5.0\Razor\Views\Admin\AddedPolicy.cshtml.g.cs
+D:\GitHub\HIS\HealthInsurenceSystem\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
+D:\GitHub\HIS\HealthInsurenceSystem\obj\Debug\net5.0\Razor\Views\Admin\AddAgent.cshtml.g.cs
+D:\GitHub\HIS\HealthInsurenceSystem\obj\Debug\net5.0\Razor\Views\Admin\AddedAgent.cshtml.g.cs
